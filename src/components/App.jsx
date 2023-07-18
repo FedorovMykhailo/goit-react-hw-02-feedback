@@ -4,8 +4,6 @@ import Statistics from "./Statistics/Statistics";
 import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
 import Notification from "./Notification/Notification";
 
-
-
 export class App extends Component {
 
     state = {
@@ -39,10 +37,13 @@ export class App extends Component {
         fontSize: 40,
         color: '#010101'
       }}
-    >
-      <Section title="">
+    > <div style={{
+        height: '350px',
+      }}>
+      <Section title="Please leave feedback">
         <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleClick} />
-        <h3>Statistics</h3>
+        </Section> 
+      <Section title="Statistics">
         {this.countTotalFeedback() ?
           <Statistics
             good={this.state.good}
@@ -51,7 +52,8 @@ export class App extends Component {
             total={this.countTotalFeedback()}
             positivePercentage={this.countPositiveFeedbackPercentage()}/> :
           <Notification message="There is no feedback"/>}
-      </Section> 
+        </Section>
+        </div>
     </div>
   );}
  

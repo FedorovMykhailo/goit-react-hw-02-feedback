@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import css from "../FeedbackOptions/FeedbackOptions.module.css"
+import PropTypes from "prop-types";
 
 export default class FeedbackOptions extends Component {
     render() {  
@@ -19,4 +20,9 @@ export default class FeedbackOptions extends Component {
           <button type="button" onClick = {onLeaveFeedback} name="bad" className={css.button}>Bad</button> */}
         </div>);
   }
+}
+
+FeedbackOptions.propTypes = { 
+    options: PropTypes.array.isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired
 }
